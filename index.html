@@ -3,21 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="pageContainer">
-        <h3>Memory Game</h3>
-        <div class="gameGrid">
-        </div>
-        <p>Attempts: <span class="attemptsHolder"></span>Found: <span class="foundHolder"></span></p>
-    </div>
+    <main class="app">
+        <section id="startScreen" class="screen start-screen">
+            <div class="title">
+                <h1>Memory</h1>
+                <h2>Game</h2>
+            </div>
 
+            <h3>Choose a difficulty</h3>
+            <div class="difficulty-options" aria-label="Difficulty levels">
+                <button class="difficulty active" type="button" data-difficulty="facil">
+                    <i class="ph ph-grid-four difficulty-icon easy" aria-hidden="true"></i>
+                    <span>Easy</span>
+                </button>
+                <button class="difficulty" type="button" data-difficulty="medio">
+                    <i class="ph ph-table difficulty-icon medium" aria-hidden="true"></i>
+                    <span>Medium</span>
+                </button>
+                <button class="difficulty" type="button" data-difficulty="dificil">
+                    <i class="ph ph-grid-nine difficulty-icon hard" aria-hidden="true"></i>
+                    <span>Hard</span>
+                </button>
+            </div>
+
+            <button id="startButton" class="primary-button" type="button">
+                <i class="ph ph-play icon" aria-hidden="true"></i>
+                Start game
+            </button>
+
+            <div class="best-score">
+                <i class="ph ph-trophy trophy" aria-hidden="true"></i>
+                <div>
+                    <small>Best score</small>
+                    <strong id="bestScore">0 points</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="gameScreen" class="screen game-screen hidden">
+            <header class="game-header">
+                <div class="stat">
+                    <i class="ph ph-clock stat-icon" aria-hidden="true"></i>
+                    <div>
+                        <small>Timer</small>
+                        <strong id="timer">00:00</strong>
+                    </div>
+                </div>
+                <div class="stat">
+                    <i class="ph ph-list-numbers stat-icon" aria-hidden="true"></i>
+                    <div>
+                        <small>Attempts</small>
+                        <strong id="attempts">0</strong>
+                    </div>
+                </div>
+                <div class="stat">
+                    <i class="ph ph-trophy stat-icon" aria-hidden="true"></i>
+                    <div>
+                        <small>Score</small>
+                        <strong id="score">0</strong>
+                    </div>
+                </div>
+                <div class="game-actions">
+                    <button id="restartButton" class="restart-button" type="button">
+                        <i class="ph ph-arrow-counter-clockwise icon" aria-hidden="true"></i>
+                        Restart
+                    </button>
+                    <button id="menuButton" class="menu-button" type="button">
+                        <i class="ph ph-arrow-left icon" aria-hidden="true"></i>
+                        Back to menu
+                    </button>
+                </div>
+            </header>
+
+            <div id="gameGrid" class="game-grid" aria-label="Game board"></div>
+        </section>
+
+        <section id="resultScreen" class="screen result-screen hidden">
+            <div class="result-card">
+                <h2>You won!</h2>
+                <div class="result-row">
+                    <i class="ph ph-clock stat-icon" aria-hidden="true"></i>
+                    <span>Time: <strong id="resultTime">00:00</strong></span>
+                </div>
+                <div class="result-row">
+                    <i class="ph ph-list-numbers stat-icon" aria-hidden="true"></i>
+                    <span>Attempts: <strong id="resultAttempts">0</strong></span>
+                </div>
+                <div class="result-row">
+                    <i class="ph ph-trophy stat-icon" aria-hidden="true"></i>
+                    <span>Score: <strong id="resultScore">0</strong></span>
+                </div>
+                <div id="newRecord" class="new-record hidden">
+                    <i class="ph ph-trophy stat-icon" aria-hidden="true"></i>
+                    New high score!
+                </div>
+                <button id="playAgainButton" class="primary-button" type="button">Play again</button>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
