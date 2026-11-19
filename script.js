@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bestScoreHolder = document.querySelector('#bestScore');
 
     const difficulties = {
-        facil: { rows: 4, columns: 4, pairs: 8, recordKey: 'memoryBestFacil' },
-        medio: { rows: 4, columns: 6, pairs: 12, recordKey: 'memoryBestMedio' },
-        dificil: { rows: 6, columns: 6, pairs: 18, recordKey: 'memoryBestDificil' }
+        easy: { columns: 4, pairs: 8, recordKey: 'memoryBestEasy' },
+        medium: { columns: 6, pairs: 12, recordKey: 'memoryBestMedium' },
+        hard: { columns: 6, pairs: 18, recordKey: 'memoryBestHard' }
     };
 
     const cardImages = [
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'GitLab', image: 'images/gitlab.png' }
     ];
 
-    let selectedDifficulty = 'facil';
+    let selectedDifficulty = 'easy';
     let attempts = 0;
     let score = 0;
     let elapsedSeconds = 0;
@@ -229,9 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function calculateMatchPoints() {
         switch (selectedDifficulty) {
-            case 'medio':
+            case 'medium':
                 return 120;
-            case 'dificil':
+            case 'hard':
                 return 180;
             default:
                 return 100;
